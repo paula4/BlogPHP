@@ -10,7 +10,7 @@ class Post
   function __construct()
   {
 
-    require_once('functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
     $this->con = getConnection();
   }
   function __destruct() {
@@ -54,7 +54,7 @@ class Post
 
   /* Metodos para obtener datos */
   public static function getAllId(){
-    require_once('functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
     $con = getConnection();
     $table = $con->real_escape_string(self::TABLE);
     $sql = "SELECT id FROM $table ORDER BY id DESC";
@@ -116,7 +116,7 @@ class Post
     return $this->con->query($sql);
   }
   public function dbDelete(){
-    require_once('comment.php');//Se incluye la clase Comment para acceder al nombre de la tabla
+    require_once(dirname(__FILE__).'/comment.php');//Se incluye la clase Comment para acceder al nombre de la tabla
     $table = $this->con->real_escape_string(Comment::TABLE);
     $post_id = $this->con->real_escape_string($this->id);
     //Antes de eliminar el post se deben eliminar sus comentarios

@@ -7,8 +7,8 @@ class Sesion {
     if (session_status() == PHP_SESSION_NONE) {
     		session_start();
 		}
-		require_once('classes/user.php');
-    require_once('functions/mysqlfunctions.php');
+		require_once(dirname(__FILE__).'/user.php');
+    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
     $con = getConnection();
     $usr = new User();
 
@@ -31,17 +31,17 @@ class Sesion {
 		}
 	}
 	public static function Logout(){
-		session_start();
+		if (session_status() == PHP_SESSION_NONE) {
+				session_start();
+		}
 		if(isset($_SESSION['conected'])){
 				session_destroy();
+
       return true;
 		}
     return false;
 	}
 	public static function isLogged(){
-		if (session_status() == PHP_SESSION_NONE) {
-				session_start();
-		}
 		if(isset($_SESSION['conected']) && $_SESSION['conected']){
 			return true;
 		}
@@ -50,7 +50,6 @@ class Sesion {
 		}
 	}
   public static function getId(){
-		session_start();
     if(isset($_SESSION['id'])){
       return $_SESSION['id'];
     }

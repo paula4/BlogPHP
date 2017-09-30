@@ -9,7 +9,7 @@ class User
   private $id,$name,$lastname,$email,$password,$phone,$is_active;
   function __construct()
   {
-    require_once('functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
     $this->con = getConnection();
   }
   function __destruct() {
@@ -109,8 +109,8 @@ class User
     return $this->con->query($sql);
   }
   public function dbDelete(){
-    require_once('post.php');
-    require_once('comment.php');
+    require_once(dirname(__FILE__).'/post.php');
+    require_once(dirname(__FILE__).'/comment.php');
 
     $self_table          = $this->con->real_escape_string(Self::TABLE);
     $post_table     = $this->con->real_escape_string(Post::TABLE);
@@ -135,7 +135,7 @@ class User
         $post->dbDelete();//Elimina los comentarios del post y luego borra el post
       }
     }
-    
+
     $sql = "DELETE FROM $self_table WHERE id = '$user_id'";
     return $this->con->query($sql);
   }

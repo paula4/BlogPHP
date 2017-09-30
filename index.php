@@ -1,6 +1,10 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
-<?php include('inc.head.php') ?>
+<head>
+  <?php include('inc.head.php');?>
+</head>
+
 <body>
   <div id="wrapper">
     <div id="main">

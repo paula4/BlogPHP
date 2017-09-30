@@ -26,6 +26,7 @@
         <?php
         if(Sesion::isLogged()){
           ?>
+          <li><a href="admin/">Panel de usuario</a></li>
           <li><a href="logout.php">Cerrar Sesion</a></li>
           <?php
         }else{
