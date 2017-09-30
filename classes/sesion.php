@@ -31,14 +31,15 @@ class Sesion {
 		}
 	}
 	public static function Logout(){
+		session_start();
 		if(isset($_SESSION['conected'])){
-			$_SESSION['conected'] = null;
-			$_SESSION['id'] = null;
+				session_destroy();
       return true;
 		}
     return false;
 	}
 	public static function isLogged(){
+		session_start();
 		if(isset($_SESSION['conected']) && $_SESSION['conected']){
 			return true;
 		}
@@ -47,6 +48,7 @@ class Sesion {
 		}
 	}
   public static function getId(){
+		session_start();
     if(isset($_SESSION['id'])){
       return $_SESSION['id'];
     }

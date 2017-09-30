@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
   }
 }
 echo Sesion::isLogged() ? Sesion::getId(): "no logueado";
-Sesion::Logout();
+//Sesion::Logout();
 echo Sesion::isLogged() ? Sesion::getId(): "no logueado";
 
 ?>
