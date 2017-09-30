@@ -23,11 +23,11 @@ echo "Actualizado en: ".$post->getUpdatedAt().PHP_EOL;
 echo "Autor: ".$post->getAuthorId().PHP_EOL;
 
 //Actualizar post
-$post->setId("1");
+$post->setId("30");
 $post->setTitle('titulito2');
 $post->setDescription('descripcion2');
 $post->setUpdatedAt(date("Y-m-d H:i:s"));
-$post->setAuthorId('1');
+$post->setAuthorId('2');
 echo $post->dbUpdate() ? "Post actualizado".PHP_EOL:"Post no actualizado".PHP_EOL;
 
 //Eliminar post

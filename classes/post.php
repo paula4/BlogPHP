@@ -30,7 +30,11 @@ class Post
       $this->created_at = $this->datos['created_at'];
       $this->updated_at = $this->datos['updated_at'];
       $this->author_id = $this->datos['author_id'];
+      return true;
 		}
+    else{
+      return false;
+    }
   }
   public function setTitle($value){
     $this->title = $value;
@@ -49,6 +53,19 @@ class Post
   }
 
   /* Metodos para obtener datos */
+  public static function getAllId(){
+    require_once('functions/mysqlfunctions.php');
+    $con = getConnection();
+    $table = $con->real_escape_string(self::TABLE);
+    $sql = "SELECT id FROM $table ORDER BY id DESC";
+    $toreturn = array();
+    if($result = $con->query($sql)){
+      while($row = $result->fetch_assoc()){
+        array_push($toreturn,$row['id']);
+      }
+    }
+    return $toreturn;
+  }
   public function getId(){
     return $this->id;
   }
@@ -79,7 +96,7 @@ class Post
     $sql = "INSERT INTO $table
     (title,description,created_at,updated_at,author_id)
     VALUES ('$title','$description','$created_at','$updated_at','$author_id')";
-    
+
     return $this->con->query($sql);
   }
   public function dbUpdate(){
