@@ -2,19 +2,19 @@
 header("Content-Type: text/plain");
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-require_once('classes/user.php');
+require_once(dirname(__FILE__).'/../classes/user.php');
 
 $user = new User();
-/*
+
 //Agregar un user
-$user->setName('Paula');
+$user->setName('Pablito');
 $user->setLastName('Perez');
-$user->setEmail('asdasd@asdasd.com');
-$user->setPass('hola');
+$user->setEmail('asdasd2@asdasd.com');
+$user->setPass('chau');
 $user->setPhone('32165497');
 $user->setIsActive('1');
-echo $user->dbInsert() ? "Usuario insertado".PHP_EOL:"UsuarioUsuario no insertado".PHP_EOL;
-
+echo $user->dbInsert() ? "Usuario insertado".PHP_EOL:"Usuario no insertado".PHP_EOL;
+/*
 //Obtener un user de id 1
 $user->setId("1");
 echo "Nombre: ".$user->getName().PHP_EOL;

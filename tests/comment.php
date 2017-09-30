@@ -2,9 +2,9 @@
 header("Content-Type: text/plain");
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-require_once('classes/comment.php');
-require_once('classes/user.php');
-require_once('classes/post.php');
+require_once(dirname(__FILE__).'/../classes/comment.php');
+require_once(dirname(__FILE__).'/../classes/user.php');
+require_once(dirname(__FILE__).'/../classes/post.php');
 
 $comment = new Comment();
 $user = new User();

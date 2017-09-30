@@ -4,7 +4,7 @@
   <input type="submit" name="submit" value="Ingresar">
 </form>
 <?php
-require_once('classes/sesion.php');
+require_once(dirname(__FILE__).'/../classes/sesion.php');
 
 
 error_reporting(E_ALL);
