@@ -7,24 +7,33 @@
 
       </header>
       <?php
-        require_once('classes/sesion.php');
+      require_once('classes/sesion.php');
 
-        if(Sesion::isLogged()){
+      if(Sesion::isLogged()){
 
-          require_once('classes/user.php');
-          $user = new User();
-          $user->setId(Sesion::getId());
-          ?>
+        require_once('classes/user.php');
+        $user = new User();
+        $user->setId(Sesion::getId());
+        ?>
 
-          <img src="assets/img/avatar.png" width="40px" height="40px" alt="<?php echo $user->getName()." ".$user->getLastName(); ?>">
-          <h3>¡Hola <?php echo $user->getName();?>!</h3>
-          <?php
-        }
+        <img src="assets/img/avatar.png" width="40px" height="40px" alt="<?php echo $user->getName()." ".$user->getLastName(); ?>">
+        <h3>¡Hola <?php echo $user->getName();?>!</h3>
+        <?php
+      }
       ?>
       <ul>
         <li><a href="index.php">Inicio</a></li>
-        <li><a href="generic.html">Mi Perfil</a></li>
-        <li><a href="elements.html">Iniciar Sesion</a></li>
+        <?php
+        if(Sesion::isLogged()){
+          ?>
+          <li><a href="logout.php">Cerrar Sesion</a></li>
+          <?php
+        }else{
+          ?>
+          <li><a href="login.php">Iniciar Sesion</a></li>
+          <?php
+        }
+        ?>
       </ul>
     </nav>
   </div>
