@@ -15,8 +15,7 @@
         $user = new User();
         $user->setId(Sesion::getId());
         ?>
-
-        <img src="assets/img/avatar.png" width="40px" height="40px" alt="<?php echo $user->getName()." ".$user->getLastName(); ?>">
+        <img class="rounded" src="assets/img/avatar.png" width="40px" height="40px" alt="<?php echo $user->getName()." ".$user->getLastName(); ?>">
         <h3>¡Hola <?php echo $user->getName();?>!</h3>
         <?php
       }
