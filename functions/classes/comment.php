@@ -9,7 +9,7 @@ class Comment
   private $id,$user_id,$post_id,$comment,$created_at;
   function __construct()
   {
-    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../../functions/mysqlfunctions.php');
     $this->con = getConnection();
   }
   function __destruct() {

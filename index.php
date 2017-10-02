@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-  <?php include('inc.head.php');?>
+  <?php include('inc/inc.head.php');?>
 </head>
 
 <body>
@@ -10,15 +10,15 @@
     <div id="main">
       <div class="inner">
         <!-- Header -->
-        <?php include('inc.header.php'); ?>
+        <?php include('inc/inc.header.php'); ?>
         <!-- Banner -->
-        <?php include('inc.banner.php') ?>
+        <?php include('inc/inc.banner.php') ?>
         <!-- Ultimos Posts -->
-        <?php include('inc.loop.php'); ?>
+        <?php include('inc/inc.loop.php'); ?>
       </div>
     </div>
     <!-- Sidebar -->
-    <?php include('inc.sidebar.php'); ?>
+    <?php include('inc/inc.sidebar.php'); ?>
   </div>
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>

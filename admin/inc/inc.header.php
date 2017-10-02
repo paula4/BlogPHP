@@ -1,5 +1,5 @@
 <header class="main-header">
-  <a href="index2.html" class="logo">
+  <a href="index.php" class="logo">
     <span class="logo-mini">B<b>PHP</b></span>
     <span class="logo-lg">Blog<b>PHP</b></span>
   </a>

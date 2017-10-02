@@ -10,7 +10,7 @@ class Post
   function __construct()
   {
 
-    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../../functions/mysqlfunctions.php');
     $this->con = getConnection();
   }
   function __destruct() {
@@ -54,7 +54,7 @@ class Post
 
   /* Metodos para obtener datos */
   public static function getAllId($author_id = null){
-    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../../functions/mysqlfunctions.php');
     $con = getConnection();
     $table = $con->real_escape_string(self::TABLE);
     $sql = isset($author_id) ? "SELECT id FROM $table WHERE author_id = '$author_id' ORDER BY id DESC":"SELECT id FROM $table ORDER BY id DESC";

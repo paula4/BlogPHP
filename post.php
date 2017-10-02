@@ -1,19 +1,19 @@
 <?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
-<?php include('inc.head.php') ?>
+<?php include('inc/inc.head.php') ?>
 <body>
   <div id="wrapper">
     <div id="main">
       <div class="inner">
         <!-- Header -->
-        <?php include('inc.header.php'); ?>
+        <?php include('inc/inc.header.php'); ?>
         <!-- Post Individual -->
-        <?php include('inc.post.php'); ?>
+        <?php include('inc/inc.post.php'); ?>
       </div>
     </div>
     <!-- Sidebar -->
-    <?php include('inc.sidebar.php'); ?>
+    <?php include('inc/inc.sidebar.php'); ?>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>

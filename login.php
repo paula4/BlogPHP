@@ -1,5 +1,5 @@
 <?php
-require_once('classes/sesion.php');
+require_once('functions/classes/sesion.php');
 if(isset($_POST['email']) && isset($_POST['password']) && Sesion::Login($_POST['email'],$_POST['password'])){
   header('Location: admin/index.php');
 }
@@ -13,13 +13,13 @@ if(isset($_POST['email']) && isset($_POST['password']) && Sesion::Login($_POST['
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="admin/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="admin/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="admin/assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="admin/assets/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="admin/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="admin/assets/plugins/iCheck/square/blue.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -57,11 +57,11 @@ if(isset($_POST['email']) && isset($_POST['password']) && Sesion::Login($_POST['
     </div>
   </div>
   <!-- jQuery 3 -->
-  <script src="admin/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="admin/assets/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
-  <script src="admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="admin/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <!-- iCheck -->
-  <script src="admin/plugins/iCheck/icheck.min.js"></script>
+  <script src="admin/assets/plugins/iCheck/icheck.min.js"></script>
   <script>
   $(function () {
     $('input').iCheck({

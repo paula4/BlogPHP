@@ -5,8 +5,8 @@
   <div class="posts">
     <?php
 
-    require_once('classes/post.php');
-    require_once('classes/user.php');
+    require_once('functions/classes/post.php');
+    require_once('functions/classes/user.php');
     foreach (Post::getAllId() as $post_id) {
       $post = new Post();
       $user = new User();

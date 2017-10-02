@@ -7,11 +7,11 @@
 
       </header>
       <?php
-      require_once('classes/sesion.php');
+      require_once('functions/classes/sesion.php');
 
       if(Sesion::isLogged()){
 
-        require_once('classes/user.php');
+        require_once('functions/classes/user.php');
         $user = new User();
         $user->setId(Sesion::getId());
         ?>

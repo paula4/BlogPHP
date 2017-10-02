@@ -9,7 +9,7 @@ class User
   private $id,$name,$lastname,$email,$password,$phone,$is_active;
   function __construct()
   {
-    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../../functions/mysqlfunctions.php');
     $this->con = getConnection();
   }
   function __destruct() {

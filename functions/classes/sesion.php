@@ -8,7 +8,7 @@ class Sesion {
     		session_start();
 		}
 		require_once(dirname(__FILE__).'/user.php');
-    require_once(dirname(__FILE__).'/../functions/mysqlfunctions.php');
+    require_once(dirname(__FILE__).'/../../functions/mysqlfunctions.php');
     $con = getConnection();
     $usr = new User();
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once(dirname(__FILE__).'/../classes/post.php');
-require_once(dirname(__FILE__).'/../classes/sesion.php');
+require_once(dirname(__FILE__).'/../functions/classes/post.php');
+require_once(dirname(__FILE__).'/../functions/classes/sesion.php');
 $redirect = substr(dirname(__FILE__),strlen($_SERVER["DOCUMENT_ROOT"]));
 if(Sesion::isLogged() && isset($_GET['id']) && isset($_POST['title']) && isset($_POST['description'])){
   $author_id = Sesion::getId();

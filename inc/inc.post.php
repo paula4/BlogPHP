@@ -1,5 +1,5 @@
 <?php
-require_once('classes/post.php');
+require_once('functions/classes/post.php');
 $post = new Post();
 if(!isset($_GET['id']) || $post->setId($_GET['id']) ==false){
   header('Location: index.php');

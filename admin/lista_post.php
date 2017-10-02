@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <?php include('inc.head.php'); ?>
+  <?php include('inc/inc.head.php'); ?>
 </head>
 <body class="hold-transition skin-red-light sidebar-mini">
   <div class="wrapper">
-    <?php include('inc.header.php'); ?>
-    <?php include('inc.sidebar.php') ?>
+    <?php include('inc/inc.header.php'); ?>
+    <?php include('inc/inc.sidebar.php') ?>
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
@@ -48,7 +48,7 @@
                   <th style="width: 110px">Actualizado el</th>
                 </tr>
                 <?php
-                require_once('../classes/post.php');
+                require_once('../functions/classes/post.php');
                 foreach (Post::getAllId($user->getId()) as $post_id) {
                   $post = new Post();
                   $post->setId($post_id);
@@ -76,7 +76,7 @@
           </div>
       </section>
     </div>
-    <?php include('inc.footer.php') ?>
+    <?php include('inc/inc.footer.php') ?>
     <div class="control-sidebar-bg"></div>
   </div>
   <script type="text/javascript">
@@ -87,15 +87,15 @@
     }
   </script>
   <!-- jQuery 3 -->
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <!-- FastClick -->
-  <script src="bower_components/fastclick/lib/fastclick.js"></script>
+  <script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
   <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.min.js"></script>
+  <script src="assets/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
+  <script src="assets/dist/js/demo.js"></script>
   <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
