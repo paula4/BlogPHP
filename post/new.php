@@ -12,7 +12,7 @@ if(Sesion::isLogged() && isset($_POST['title']) && isset($_POST['description']))
   $post->setUpdatedAt(date("Y-m-d H:i:s"));
   $post->setAuthorId($author_id);
   if($post->dbInsert()){
-    $redirect .= "/../admin/agregar_post.php?status=ok";
+    $redirect .= "/../admin/agregar_post.php?status=created";
   }
   else{
     $redirect .= "/../admin/agregar_post.php?status=no";

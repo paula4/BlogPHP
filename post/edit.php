@@ -13,7 +13,7 @@ if(Sesion::isLogged() && isset($_GET['id']) && isset($_POST['title']) && isset($
     $post->setDescription($_POST['description']);
     $post->setUpdatedAt(date("Y-m-d H:i:s"));
     if($post->dbUpdate()){
-      $redirect .= "/../admin/editar_post.php?id=$post_id&status=ok";
+      $redirect .= "/../admin/editar_post.php?id=$post_id&status=edited";
     }
     else{
       $redirect .= "/../admin/editar_post.php?id=$post_id&status=no";

@@ -1,3 +1,15 @@
+<?php
+require_once('../classes/sesion.php');
+if(Sesion::isLogged()){
+  require_once('../classes/user.php');
+  $user = new User();
+  $user->setId(Sesion::getId());
+}
+else{
+  header('Location: ../login.php');
+  return false;
+}
+?>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>BlogPHP - Panel de usuario</title>
@@ -11,7 +23,7 @@
 <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
 folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="dist/css/skins/skin-red-light.min.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

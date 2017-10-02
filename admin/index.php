@@ -3,17 +3,9 @@
 <html>
 <head>
   <?php
-    include('inc.head.php');
-    require_once('../classes/sesion.php');
-    if(Sesion::isLogged()){
-      require_once('../classes/user.php');
-      $user = new User();
-      $user->setId(Sesion::getId());
-    }
-    else{
-      header('Location: ../index.php');
-      return false;
-    }
+
+  include('inc.head.php');
+
   ?>
 </head>
 <body class="hold-transition skin-red-light sidebar-mini">
