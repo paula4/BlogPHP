@@ -29,10 +29,10 @@
       <section class="content">
         <div class="row">
           <div class="col-md-6">
-            <form action="../post/edit.php?id=<?php echo $post->getId();?>" method="post">
+            <form action="post/edit.php?id=<?php echo $post->getId();?>" method="post">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Nuevo Post</h3>
+                  <h3 class="box-title">Editar Post</h3>
                 </div>
                 <div class="box-body">
                   <?php
@@ -66,10 +66,10 @@
                 <div class="box-footer">
                   <div class="row">
                     <div class="col-xs-6">
-                      <button type="reset" class="btn">Limpiar formulario</button>
+                      <button type="reset" class="btn">Reiniciar formulario</button>
                     </div>
                     <div align="right" class="col-xs-6">
-                      <button type="submit" class="btn btn-primary">Agregar Post</button>
+                      <button type="submit" class="btn btn-primary">Guardar Post</button>
                     </div>
                   </div>
                 </div>

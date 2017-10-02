@@ -17,7 +17,7 @@
       <section class="content">
         <div class="row">
           <div class="col-md-6">
-            <form action="../post/new.php" method="post">
+            <form action="post/new.php" method="post">
               <div class="box">
                 <div class="box-header with-border">
                   <h3 class="box-title">Nuevo Post</h3>

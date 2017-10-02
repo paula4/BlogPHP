@@ -6,14 +6,16 @@ Cambiar datos de conexion en la db en [functions/dbinfo.php](https://github.com/
     .BlogPHP
     │
     ├── admin (Panel de usuario)
+    │   ├── post
+    │   │   └── (Acciones new, edit, delete)
     │   ├── agregar_post.php (Formulario para agregar posts)
+    │   ├── editar_post.php (Formulario para modificar posts)
+    │   ├── lista_post.php (Lista de posts)
     │   ├── assets
     │   │   └── (Archivos de la plantilla)
-    │   ├── editar_post.php (Formulario para modificar posts)
     │   ├── inc
     │   │   └── (Archivos para importar)
-    │   ├── index.php (Pagina principal)
-    │   └── lista_post.php (Lista de posts)
+    │   └── index.php (Pagina principal)
     │
     ├── assets
     │   └── (Archivos de la plantilla)

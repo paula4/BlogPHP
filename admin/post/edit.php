@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once(dirname(__FILE__).'/../functions/classes/post.php');
-require_once(dirname(__FILE__).'/../functions/classes/sesion.php');
+require_once(dirname(__FILE__).'/../../functions/classes/post.php');
+require_once(dirname(__FILE__).'/../../functions/classes/sesion.php');
 $redirect = substr(dirname(__FILE__),strlen($_SERVER["DOCUMENT_ROOT"]));
 if(Sesion::isLogged() && isset($_GET['id']) && isset($_POST['title']) && isset($_POST['description'])){
   $author_id = Sesion::getId();
@@ -13,18 +13,18 @@ if(Sesion::isLogged() && isset($_GET['id']) && isset($_POST['title']) && isset($
     $post->setDescription($_POST['description']);
     $post->setUpdatedAt(date("Y-m-d H:i:s"));
     if($post->dbUpdate()){
-      $redirect .= "/../admin/editar_post.php?id=$post_id&status=edited";
+      $redirect .= "/../editar_post.php?id=$post_id&status=edited";
     }
     else{
-      $redirect .= "/../admin/editar_post.php?id=$post_id&status=no";
+      $redirect .= "/../editar_post.php?id=$post_id&status=no";
     }
   }
   else{
-    $redirect .= "/../admin/index.php";
+    $redirect .= "/../index.php";
   }
 }
 else{
-  $redirect .= "/../admin/index.php";
+  $redirect .= "/../index.php";
 }
 header("Location: $redirect");
 return false;

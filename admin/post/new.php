@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once(dirname(__FILE__).'/../functions/classes/post.php');
-require_once(dirname(__FILE__).'/../functions/classes/sesion.php');
+require_once(dirname(__FILE__).'/../../functions/classes/post.php');
+require_once(dirname(__FILE__).'/../../functions/classes/sesion.php');
 $redirect = substr(dirname(__FILE__),strlen($_SERVER["DOCUMENT_ROOT"]));
 if(Sesion::isLogged() && isset($_POST['title']) && isset($_POST['description'])){
   $author_id = Sesion::getId();
@@ -12,14 +12,14 @@ if(Sesion::isLogged() && isset($_POST['title']) && isset($_POST['description']))
   $post->setUpdatedAt(date("Y-m-d H:i:s"));
   $post->setAuthorId($author_id);
   if($post->dbInsert()){
-    $redirect .= "/../admin/agregar_post.php?status=created";
+    $redirect .= "/../agregar_post.php?status=created";
   }
   else{
-    $redirect .= "/../admin/agregar_post.php?status=no";
+    $redirect .= "/../agregar_post.php?status=no";
   }
 }
 else{
-  $redirect .= "/../admin/index.php";
+  $redirect .= "/../index.php";
 }
 header("Location: $redirect");
 return false;

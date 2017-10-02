@@ -82,7 +82,7 @@
   <script type="text/javascript">
     function EliminarPost(id){
       if (confirm("¿Esta seguro que desea elimiar el post?")) {
-        window.location.href = '../post/delete.php?id='+id;
+        window.location.href = 'post/delete.php?id='+id;
       }
     }
   </script>
