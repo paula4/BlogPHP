@@ -1,7 +1,7 @@
 <?php
 /**
- * Clase Comment
- */
+* Clase Comment
+*/
 class Comment
 {
   const TABLE = 'comments';
@@ -14,7 +14,7 @@ class Comment
   }
   function __destruct() {
     $this->con->close();
-   }
+  }
   /* Metodos para establecer datos */
   public function setId($id){
     $id = $this->con->real_escape_string($id);
@@ -28,7 +28,7 @@ class Comment
       $this->post_id = $this->datos['post_id'];
       $this->comment = $this->datos['comment'];
       $this->created_at = $this->datos['created_at'];
-		}
+    }
   }
   public function setUserId($value){
     $this->user_id = $value;
@@ -44,6 +44,32 @@ class Comment
   }
 
   /* Metodos para obtener datos */
+  public static function getAllId($post_id = null,$user_id = null){
+    require_once(dirname(__FILE__).'/../../functions/mysqlfunctions.php');
+    $con = getConnection();
+    $table = $con->real_escape_string(self::TABLE);
+    $sql = "SELECT id FROM $table ";
+    if(isset($post_id) && isset($user_id)){
+      $sql .= "WHERE post_id = '$post_id' AND user_id = '$user_id' ORDER BY id DESC";
+    }
+    elseif(isset($post_id)){
+      $sql .= "WHERE post_id = '$post_id' ORDER BY id DESC";
+    }
+    elseif (isset($user_id)) {
+      $sql .= "WHERE user_id = '$user_id' ORDER BY id DESC";
+    }
+    else{
+      $sql .= "ORDER BY id DESC";
+    }
+    $sql = isset($post_id) ? "SELECT id FROM $table WHERE post_id = '$post_id' ORDER BY id DESC":"SELECT id FROM $table ORDER BY id DESC";
+    $toreturn = array();
+    if($result = $con->query($sql)){
+      while($row = $result->fetch_assoc()){
+        array_push($toreturn,$row['id']);
+      }
+    }
+    return $toreturn;
+  }
   public function getId(){
     return $this->id;
   }
@@ -69,7 +95,7 @@ class Comment
     $created_at = $this->con->real_escape_string($this->created_at);
 
     $sql =  "INSERT INTO $table
-            (  user_id,   post_id,   comment,   created_at)
+    (  user_id,   post_id,   comment,   created_at)
     VALUES  ('$user_id','$post_id','$comment','$created_at')";
     return $this->con->query($sql);
   }
@@ -82,10 +108,10 @@ class Comment
     $created_at = $this->con->real_escape_string($this->created_at);
 
     $sql = "UPDATE $table SET user_id       = '$user_id',
-                              post_id       = '$post_id',
-                              comment       = '$comment',
-                              created_at    = '$created_at'
-                              WHERE id = '$id'";
+    post_id       = '$post_id',
+    comment       = '$comment',
+    created_at    = '$created_at'
+    WHERE id = '$id'";
     return $this->con->query($sql);
   }
   public function dbDelete(){

@@ -11,14 +11,14 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          Mis Post
-          <small>se muestra la lista de posts del usuario</small>
+          Mis comentarios
+          <small>se muestra una lista con los ultimos comentarios realizados por el usuario</small>
         </h1>
       </section>
       <section class="content">
         <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Listado de posts</h3>
+              <h3 class="box-title">Listado de comentarios</h3>
             </div>
             <div class="box-body">
               <?php
@@ -26,13 +26,13 @@
                 if($_GET['status'] == "deleted"){
                   ?>
                   <div class="callout callout-success">
-                    <p>El post se eliminó con exito.</p>
+                    <p>El comentario se eliminó con exito.</p>
                   </div>
                   <?php
                 }elseif ($_GET['status'] == "no") {
                   ?>
                   <div class="callout callout-danger">
-                    <p>Ocurrio un error y el post no se pudo eliminar.</p>
+                    <p>Ocurrio un error y el comentario no se pudo eliminar.</p>
                   </div>
                   <?php
                 }
@@ -42,30 +42,29 @@
                 <tr>
                   <th style="width: 10px">#</th>
                   <th style="width: 150px">Acciones</th>
-                  <th>Título</th>
-                  <th>Descripción</th>
+                  <th>Comentario</th>
+                  <th>Post</th>
                   <th style="width: 110px">Creado el</th>
-                  <th style="width: 110px">Actualizado el</th>
                 </tr>
                 <?php
+                require_once('../functions/classes/comment.php');
                 require_once('../functions/classes/post.php');
-                foreach (Post::getAllId($user->getId()) as $post_id) {
+                foreach (Comment::getAllId(null,$user->getId()) as $comment_id) {
+                  $comment = new Comment();
+                  $comment->setId($comment_id);
                   $post = new Post();
-                  $post->setId($post_id);
+                  $post->setId($comment->getPostId());
                   ?>
                   <tr>
-                    <td><?php echo $post_id; ?></td>
+                    <td><?php echo $comment_id; ?></td>
                     <td>
                       <div class="btn-group">
-                        <a class="btn btn-primary btn-xs" href="editar_post.php?id=<?php echo $post_id; ?>">Editar</a>
-                        <a class="btn btn-success btn-xs" href="../post.php?id=<?php echo $post_id; ?>">Ver</a>
-                        <button class="btn btn-danger btn-xs" onclick="Eliminar(<?php echo $post_id; ?>)">Eliminar</button>
+                        <button class="btn btn-danger btn-xs" onclick="Eliminar(<?php echo $comment_id; ?>)">Eliminar</button>
                       </div>
                     </td>
-                    <td><?php echo $post->getTitle(); ?></td>
-                    <td><?php echo $post->getDescription(); ?></td>
-                    <td><?php echo $post->getCreatedAt(); ?></td>
-                    <td><?php echo $post->getUpdatedAt(); ?></td>
+                    <td><?php echo $comment->getComment(); ?></td>
+                    <td><a href="../post.php?id=<?php echo $post->getId(); ?>"><?php echo $post->getTitle(); ?></a></td>
+                    <td><?php echo $comment->getCreatedAt(); ?></td>
                   </tr>
                   <?php
                 }
@@ -81,8 +80,8 @@
   </div>
   <script type="text/javascript">
     function Eliminar(id){
-      if (confirm("¿Esta seguro que desea elimiar el post?")) {
-        window.location.href = 'post/delete.php?id='+id;
+      if (confirm("¿Esta seguro que desea elimiar el comentario?")) {
+        window.location.href = 'comment/delete.php?id='+id;
       }
     }
   </script>

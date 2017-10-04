@@ -11,6 +11,9 @@ Cambiar datos de conexion en la db en [functions/dbinfo.php](https://github.com/
     │   ├── agregar_post.php (Formulario para agregar posts)
     │   ├── editar_post.php (Formulario para modificar posts)
     │   ├── lista_post.php (Lista de posts)
+    │   ├── comment
+    │   │   └── (Accion delete)
+    │   ├── mis_comentarios.php (Lista de comentarios del usuario)
     │   ├── assets
     │   │   └── (Archivos de la plantilla)
     │   ├── inc
@@ -33,4 +36,5 @@ Cambiar datos de conexion en la db en [functions/dbinfo.php](https://github.com/
     ├── login.php (Pagina de inicio de sesion)
     ├── logout.php (Pagina de cierre de sesion)
     ├── post.php (Pagina de post individual)
+    ├── delete_com.php (Eliminar comentario desde la pagina del post)
     └── register.php (Pagina de registro)

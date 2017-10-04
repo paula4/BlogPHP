@@ -56,11 +56,11 @@
                   ?>
                   <div class="form-group">
                     <label>Título</label>
-                    <input type="text" name="title" value="<?php echo $post->getTitle();?>" class="form-control" placeholder="Título">
+                    <input required type="text" name="title" value="<?php echo $post->getTitle();?>" class="form-control" placeholder="Título">
                   </div>
                   <div class="form-group">
                     <label>Descripción</label>
-                    <textarea class="form-control" name="description" rows="3" placeholder="Descripción"><?php echo $post->getDescription();?></textarea>
+                    <textarea required class="form-control" name="description" rows="3" placeholder="Descripción"><?php echo $post->getDescription();?></textarea>
                   </div>
                 </div>
                 <div class="box-footer">
@@ -90,8 +90,6 @@
   <script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
   <!-- AdminLTE App -->
   <script src="assets/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="assets/dist/js/demo.js"></script>
   <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
