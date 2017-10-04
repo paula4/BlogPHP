@@ -2,7 +2,7 @@
 return array(
   'host' => "localhost",
   'user' => "root",
-  'pass' => "",
-  'db' => ""
+  'pass' => "741852966",
+  'db' => "BlogPHP"
 );
 ?>

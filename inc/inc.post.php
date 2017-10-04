@@ -9,6 +9,19 @@ if(!isset($_GET['id']) || $post->setId($_GET['id']) ==false){
   header('Location: index.php');
   return false;
 }
+$user = new User();
+$user->setId($post->getAuthorId());
+if($user->getIsActive() == "0"){//Si el usuario desactivo la cuenta solo puede verlo el creador
+  if(Sesion::isLogged()){
+    if(Sesion::getId() != $post->getAuthorId()){
+      header('Location: index.php');
+      return false;
+    }
+  }else{
+    header('Location: index.php');
+    return false;
+  }
+}
 //Publicar comentario
 $cmstatus = -1; //Esta variable indica el estado de la publicacion del comentario
 // 1: Publicado, 0:Error, 2:Eliminado, -1: nada
@@ -93,12 +106,12 @@ $comment_ids = Comment::getAllId($_GET['id']);
 if(sizeof($comment_ids) >= 1){//Si hay comentarios en el post
   foreach ($comment_ids as $comment_id) {
     $comment = new Comment();
-    $userc = new User();
+    $user = new User();
     $comment->setId($comment_id);
-    $userc->setId($comment->getUserId());
+    $user->setId($comment->getUserId());
     ?>
     <hr/>
-    <h3><?php echo $userc->getName()." ".$userc->getLastName(); ?>:</h3>
+    <h3><?php echo $user->getName()." ".$user->getLastName(); ?>:</h3>
     <p><?php echo $comment->getComment(); ?></p>
     <?php
     if(Sesion::isLogged() && Sesion::getId() == $comment->getUserId()){

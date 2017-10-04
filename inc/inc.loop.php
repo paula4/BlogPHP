@@ -12,6 +12,7 @@
       $user = new User();
       $post->setId($post_id);
       $user->setId($post->getAuthorId());
+      if($user->getIsActive() == "0") continue; //Si el usuario desactivo la cuenta no se muestra el post
       ?>
       <article>
         <h2><?php echo $post->getTitle(); ?></h2>
