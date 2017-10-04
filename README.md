@@ -7,13 +7,16 @@ Cambiar datos de conexion en la db en [functions/dbinfo.php](https://github.com/
     │
     ├── admin (Panel de usuario)
     │   ├── post
-    │   │   └── (Acciones new, edit, delete)
+    │   │   └── (Acciones new, edit y delete)
     │   ├── agregar_post.php (Formulario para agregar posts)
     │   ├── editar_post.php (Formulario para modificar posts)
     │   ├── lista_post.php (Lista de posts)
     │   ├── comment
     │   │   └── (Accion delete)
     │   ├── mis_comentarios.php (Lista de comentarios del usuario)
+    │   ├── user
+    │   │   └── (Accion edit y delete)
+    │   ├── mi_cuenta.php (Actualizar información de usuario)
     │   ├── assets
     │   │   └── (Archivos de la plantilla)
     │   ├── inc
